@@ -1,0 +1,15 @@
+#Apache 
+- name: Web01
+  cpus: 1
+  memory: 2048
+  ip: 192.168.0.200
+  box: debian/bookworm64
+  #script: provisionamento/testing.sh
+
+#Banco de Dados
+- name: DB01
+  cpus: 1
+  memory: 2048
+  ip: 192.168.0.201
+  box: debian/bookworm64
+  #script: provisionamento/automation.sh

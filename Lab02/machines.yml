@@ -1,0 +1,31 @@
+#Apache 
+- name: web01
+  cpus: 1
+  memory: 2048
+  ip: 192.168.0.201
+  box: debian/bookworm64
+  script: prov/scripts/web01.sh
+  network: public_network
+  bridge: Killer E2600 Gigabit Ethernet Controller
+
+#Banco de Dados
+- name: db01
+  cpus: 1
+  memory: 2048
+  ip: 192.168.0.202
+  box: debian/bookworm64
+  script: prov/scripts/db01.sh
+  network: public_network
+  bridge: Killer E2600 Gigabit Ethernet Controller
+  
+
+#Gerenciador Ansible - NODE
+- name: debnode
+  cpus: 1
+  memory: 2048
+  ip: 192.168.0.200
+  box: debian/bookworm64
+  script: prov/scripts/debnode.sh
+  network: public_network
+  bridge: Killer E2600 Gigabit Ethernet Controller
+  
