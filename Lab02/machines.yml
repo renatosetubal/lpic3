@@ -29,3 +29,13 @@
   network: public_network
   bridge: Killer E2600 Gigabit Ethernet Controller
   
+#Criptografia - NODE
+- name: debcript
+  cpus: 1
+  memory: 2048
+  ip: 192.168.0.203
+  box: debian/bookworm64
+  script: prov/scripts/debcript.sh
+  network: public_network
+  bridge: Killer E2600 Gigabit Ethernet Controller
+  
