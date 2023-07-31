@@ -6,7 +6,7 @@
   box: debian/bookworm64
   script: prov/scripts/web01.sh
   network: public_network
-  bridge: Killer E2600 Gigabit Ethernet Controller
+  bridge: Killer(R) Wi-Fi 6 AX1650i 160MHz Wireless Network Adapter (201NGW)
 
 #Banco de Dados
 - name: db01

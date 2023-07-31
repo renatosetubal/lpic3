@@ -1,0 +1,46 @@
+cat << "EOF" > certificates/web01-csr.json
+{
+    "CN": "Apache 01 Local",
+    "hosts": [
+        "web01.local",
+        "192.168.0.201"
+    ],
+    "names": [
+        {
+            "C": "BR",
+            "L": "Vila Velha",
+            "O": "Iwit Internal",
+            "OU": "Iwit hosts"
+        }
+    ]
+}
+EOF
+
+cfssl gencert \
+-ca intermediate/intermediate-ca.pem \
+-ca-key intermediate/intermediate-ca-key.pem \
+-config config2.json \
+-profile host \
+certificates/web01-csr.json \
+| cfssljson -bare certificates/web01
+
+###Certificado cadeia completa
+cfssl bundle -ca-bundle root/root-ca.pem \
+-int-bundle intermediate/intermediate-ca.pem \
+-cert certificates/web01.pem \
+| cfssljson -bare web01-fullchain
+
+
+#Configuração ssl nginx
+cat << "EOF" > webserver.conf
+server {
+listen 443 ssl;
+server_name my-webserver.internal.ekervhen.xyz;
+ssl_certificate /etc/nginx/certificates/my-webserver-fullchain.pem;
+ssl_certificate_key /etc/nginx/certificates/my-webserver-key.pem;
+location / {
+root /usr/share/nginx/html;
+index index.html index.htm;
+}
+}
+EOF
