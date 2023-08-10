@@ -1,6 +1,6 @@
 #Apache 
 - name: vm01
-  cpus: 2
+  cpus: 1
   memory: 2048
   #ip: 192.168.0.201
   box: debian/bookworm64
@@ -8,14 +8,14 @@
   network: public_network
   bridge: Intel(R) Ethernet Connection (2) I219-LM
 
-# - name: w2
-  # cpus: 1
-  # memory: 2048
-  # ip: 192.168.0.204
-  # box: debian/bookworm64
-  # script: prov/scripts/w2.sh
-  # network: public_network
-  # bridge: Killer(R) Wi-Fi 6 AX1650i 160MHz Wireless Network Adapter (201NGW)
+- name: docker
+  cpus: 1
+  memory: 2048
+  #ip: 192.168.0.204
+  box: debian/bookworm64
+  script: prov/scripts/docker.sh
+  network: public_network
+  bridge: Intel(R) Ethernet Connection (2) I219-LM
 
 
 
