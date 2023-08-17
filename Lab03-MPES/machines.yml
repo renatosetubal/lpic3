@@ -21,7 +21,7 @@
 - name: critpo31
   cpus: 1
   memory: 2048
-  #ip: 10.0.19.45
+  ip: 10.0.19.156
   box: debian/bookworm64
   script: prov/scripts/cripto31.sh
   network: public_network

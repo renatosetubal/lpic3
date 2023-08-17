@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
       server.vm.box = machines["box"]
       server.vm.box_check_update = false
       # server.vm.network machines["network"], bridge: machines["bridge"], ip: machines["ip"], dns: "8.8.8.8" 
-      server.vm.network machines["network"], bridge: machines["bridge"], dns: "8.8.8.8"  #ip: machines['ip'], dns: "8.8.8.8" 
+      server.vm.network machines["network"], bridge: machines["bridge"], dns: "8.8.8.8", ip: machines['ip'] 
 
       server.vm.provider "virtualbox" do |vb|
         vb.customize ["modifyvm", :id, "--groups", "/LPIC03"]
