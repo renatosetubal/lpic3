@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
       server.vm.box = machines["box"]
       server.vm.box_check_update = false
       # server.vm.network machines["network"], bridge: machines["bridge"], ip: machines["ip"], dns: "8.8.8.8" 
-      server.vm.network machines["network"], bridge: machines["bridge"], dns: "8.8.8.8" 
+      server.vm.network machines["network"], bridge: machines["bridge"], dns: "8.8.8.8"  #ip: machines['ip'], dns: "8.8.8.8" 
 
       server.vm.provider "virtualbox" do |vb|
         vb.customize ["modifyvm", :id, "--groups", "/LPIC03"]
@@ -23,9 +23,6 @@ Vagrant.configure("2") do |config|
         vb.name = machines["name"]
       end
      config.vm.synced_folder "troca", "/vagrant", disabled: false 
-     #server.vm.provision "file", source: "troca", destination: "/troca"
-     #server.vm.provision "file", source: "keys/devsecops.pub", destination: "/tmp/devsecops.pub"
-     # server.vm.provision "file", source: "provisionamento/files/git-plugin-1.0.4.jar", destination: "/tmp/git-plugin-1.0.4.jar"
      server.vm.provision "shell", path: machines["script"]
     end
   end

@@ -1,33 +1,31 @@
 #Apache 
-- name: vm01
+# - name: vm01
+#   cpus: 1
+#   memory: 2048
+#   #ip: 192.168.0.201
+#   box: debian/bookworm64
+#   script: prov/scripts/vm01.sh
+#   network: public_network
+#   bridge: Intel(R) Ethernet Connection (2) I219-LM
+
+# - name: docker
+#   cpus: 1
+#   memory: 2048
+#   #ip: 192.168.0.204
+#   box: debian/bookworm64
+#   script: prov/scripts/docker.sh
+#   network: public_network
+#   bridge: Intel(R) Ethernet Connection (2) I219-LM
+
+#Sistema de arquivo Criptografado
+- name: critpo31
   cpus: 1
   memory: 2048
-  #ip: 192.168.0.201
+  #ip: 10.0.19.45
   box: debian/bookworm64
-  script: prov/scripts/vm01.sh
+  script: prov/scripts/cripto31.sh
   network: public_network
   bridge: Intel(R) Ethernet Connection (2) I219-LM
-
-- name: docker
-  cpus: 1
-  memory: 2048
-  #ip: 192.168.0.204
-  box: debian/bookworm64
-  script: prov/scripts/docker.sh
-  network: public_network
-  bridge: Intel(R) Ethernet Connection (2) I219-LM
-
-
-
-#Banco de Dados
-# - name: b1
-  # cpus: 1
-  # memory: 2048
-  # ip: 192.168.0.202
-  # box: debian/bookworm64
-  # script: prov/scripts/b1.sh
-  # network: public_network
-  # bridge: Killer E2600 Gigabit Ethernet Controller
   
 
 #Gerenciador Ansible - NODE
