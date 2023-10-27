@@ -10,16 +10,18 @@ Vagrant.configure("2") do |config|
   
    config.vm.provider "virtualbox" do |vb| #Configuração da máquina virtual que será criada
     
-      
-      #hd = 'E:\VMS\Vagrant\teste.vdi'
+      nomeMaquina="DebianLuks"
+      sdb = "E:\disk\dluksSdb.vdi"
+      sdc = "E:\disk\dluksSdc.vdi"
+      vb.customize ['createhd', '--filename', sdb, '--size', 10 * 1024]
+      vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', sdb]
+      vb.customize ['createhd', '--filename', sdc , '--size', 20 * 1024]
+      vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 2, '--device', 0, '--type', 'hdd', '--medium', sdc]
+      vb.name = nomeMaquina #Definindo o nome da Máquina
+      vb.cpus = 2 
+      vb.gui = false 
+      vb.memory = "2024" 
       vb.customize ["modifyvm", :id, "--groups", "/Lpic3"]
-      vb.customize ['createhd', '--filename', 'db12hd_sdb', '--size', 10 * 1024]
-      vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', 'db12hd_sdb.vdi']
-      
-      vb.name = "Db12Luks" #Definindo o nome da Máquina
-      vb.cpus = 2 #Definindo Quantidade de CPU
-      vb.gui = false #Definindo se abrirá ou não a gui do virtualbox
-      vb.memory = "2024" #Configurar a memória
    end
    config.vm.provision "shell", inline: <<-SHELL #executando update do Debian durante o provisionamento. 
      hostnamectl set-hostname DebianLuks
