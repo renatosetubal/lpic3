@@ -26,6 +26,7 @@ Vagrant.configure("2") do |config|
    config.vm.provision "shell", inline: <<-SHELL #executando update do Debian durante o provisionamento. 
      hostnamectl set-hostname DebianLuks
      apt-get update -y
+     apt install -y xfsprogs
    SHELL
    # config.vm.provision "shell", path:"files/makedb.sh"
 end
