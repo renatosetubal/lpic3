@@ -4,6 +4,8 @@ apt install tmux -y
 apt install htop -y
 apt install net-tools -y
 apt install aptitude -y
+apt install cryptsetup -y
+
 
 
 

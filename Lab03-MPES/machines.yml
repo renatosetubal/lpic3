@@ -27,7 +27,14 @@
   network: public_network
   bridge: Intel(R) Ethernet Connection (2) I219-LM
   
-
+- name: rossano
+  cpus: 1
+  memory: 2048
+  ip: 10.0.19.157
+  box: debian/bookworm64
+  script: prov/scripts/cripto31.sh
+  network: public_network
+  bridge: Intel(R) Ethernet Connection (2) I219-LM
 #Gerenciador Ansible - NODE
 # - name: debnode
 #   cpus: 1
