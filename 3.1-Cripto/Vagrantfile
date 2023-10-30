@@ -11,8 +11,8 @@ Vagrant.configure("2") do |config|
    config.vm.provider "virtualbox" do |vb| #Configuração da máquina virtual que será criada
     
       nomeMaquina="DebianLuks"
-      sdb = "E:\disk\dluksSdb.vdi"
-      sdc = "E:\disk\dluksSdc.vdi"
+      sdb = "dluksSdb.vdi"
+      sdc = "dluksSdc.vdi"
       vb.customize ['createhd', '--filename', sdb, '--size', 10 * 1024]
       vb.customize ['storageattach', :id, '--storagectl', 'SATA Controller', '--port', 1, '--device', 0, '--type', 'hdd', '--medium', sdb]
       vb.customize ['createhd', '--filename', sdc , '--size', 20 * 1024]
