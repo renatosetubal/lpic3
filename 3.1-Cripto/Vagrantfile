@@ -20,13 +20,20 @@ Vagrant.configure("2") do |config|
       vb.name = nomeMaquina #Definindo o nome da Máquina
       vb.cpus = 2 
       vb.gui = false 
-      vb.memory = "2024" 
+      vb.memory = "1024" 
       vb.customize ["modifyvm", :id, "--groups", "/Lpic3"]
    end
    config.vm.provision "shell", inline: <<-SHELL #executando update do Debian durante o provisionamento. 
      hostnamectl set-hostname DebianLuks
      apt-get update -y
      apt install -y xfsprogs
+     mkfs.xfs /dev/sdb
+     mkfs.xfs /dev/sdc
+     mkdir /opt/sdb
+     mkdir /opt/sdc
+     cat /files/tofstab.txt >> /etc/fstab
+     systemctl daemon-reload
+     mount -a
    SHELL
    # config.vm.provision "shell", path:"files/makedb.sh"
 end

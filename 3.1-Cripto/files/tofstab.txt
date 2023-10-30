@@ -1,0 +1,3 @@
+/dev/sdb /opt/sdb xfs	defaults	0	0
+/dev/sdc /opt/sdc xfs	defaults	0	0
+
