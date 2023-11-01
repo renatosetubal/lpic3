@@ -1,0 +1,4 @@
+apt install cryptsetup
+cryptsetup luksFormat /dev/sdb
+cryptsetup luksOpen /dev/sdb discocripto
+mount /dev/mapper/discocripto /opt/sdb

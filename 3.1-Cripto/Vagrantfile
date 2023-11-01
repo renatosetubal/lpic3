@@ -26,14 +26,16 @@ Vagrant.configure("2") do |config|
    config.vm.provision "shell", inline: <<-SHELL #executando update do Debian durante o provisionamento. 
      hostnamectl set-hostname DebianLuks
      apt-get update -y
-     apt install -y xfsprogs
-     mkfs.xfs /dev/sdb
-     mkfs.xfs /dev/sdc
-     mkdir /opt/sdb
-     mkdir /opt/sdc
-     cat /files/tofstab.txt >> /etc/fstab
-     systemctl daemon-reload
-     mount -a
+     apt install -y xfsprogs cryptsetup 
+     #mkfs.xfs /dev/sdb
+     #mkfs.xfs /dev/sdc
+     mkdir /sdb
+     mkdir /sdc
+     #echo -n "YES" | cryptsetup luksFormat /dev/sdb
+     #echo -n "YES" | cryptsetup luksFormat /dev/sdc
+     #cat /files/tofstab.txt >> /etc/fstab
+     #systemctl daemon-reload
+     #mount -a
    SHELL
    # config.vm.provision "shell", path:"files/makedb.sh"
 end
