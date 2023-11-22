@@ -3,7 +3,7 @@
   cpus: 1
   memory: 2048
   ip: 192.168.0.201
-  box: debian/bookworm64
+  box: bento/debian-1"
   script: prov/scripts/w1.sh
   network: public_network
   bridge: Killer(R) Wi-Fi 6 AX1650i 160MHz Wireless Network Adapter (201NGW)
@@ -24,7 +24,7 @@
   cpus: 1
   memory: 2048
   ip: 192.168.0.202
-  box: debian/bookworm64
+  box: bento/debian-12
   script: prov/scripts/b1.sh
   network: public_network
   bridge: Killer E2600 Gigabit Ethernet Controller
