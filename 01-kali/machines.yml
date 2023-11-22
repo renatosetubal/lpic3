@@ -1,0 +1,23 @@
+
+- name: KL1
+  cpus: 1
+  memory: 1024
+  #net: public_network
+  net: private_network
+  ip: 192.168.2.10
+  box: kalilinux/rolling
+  #discb: disks/M1sdb.vdi
+  #discc: disks/M1sdc.vdi
+  script: sh/debian.sh
+
+- name: KL02
+  cpus: 1
+  memory: 1024
+  #net: public_network
+  net: private_network
+  ip: 192.168.1.20
+  box: Sliim/kali-linux-2.0-amd64
+  # discb: disks/M2sdb.vdi
+  # discc: disks/M2sdc.vdi
+  script: sh/debian.sh
+
